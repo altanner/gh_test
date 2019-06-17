@@ -9,7 +9,7 @@
 </p>
 
 #### A social media harvester integrated with MongoDB for data management.
-
+---
 ## Instructions in a nutshell
 #### 1. Install Docker.
 #### 2. Put these three files into a folder:
@@ -18,7 +18,7 @@
   * and your user_list (supplied by you: one screen name per line, plain text file).
   
 #### 3. Run Twongo_Docker_Launcher by double clicking it, or run it in your terminal/command line.
-
+---
 ## Contents
 #### 0.1 What does it do?  
 #### 1.1 Running with Docker
