@@ -42,28 +42,22 @@ This is the usual way of running. Twongo's software requirement is [Docker](http
 To run within a docker container, save the file `Twongo_Docker_Launcher` and place it in a folder. Docker must be running: if it is not, it can be started with `systemctl start docker` (on Linux distributions), or `open /Applications/Docker.app` (in both MacOS and Linux, Docker can be started by clicking the app icon).
 
 You must provide 2 further files in the folder with `Twongo_Docker_Launcher`:
-1. a list of user screen names in a file called `user_list`.\
-The user list must be a plain text file, with a single username (twitter screen name) per line.
-2. Twitter API credentials. Please see the file in this repository for a template of this file.\
-This file must be called `credentials.py`. You will need your own Twitter API credentials by having a developer account authorised by Twitter. Please see [Twitter documentation](developer.twitter.com/en/apply-for-access.html) for how to do this. Be aware that file names are case sensitive.
+1. a list of user screen names in a file called `user_list`. The user list must be a plain text file, with a single username (twitter screen name) per line.
+2. Twitter API credentials. Please see the file in this repository for a template of this file. This file must be called `credentials.py`. You will need your own Twitter API credentials by having a developer account authorised by Twitter. Please see [Twitter documentation](developer.twitter.com/en/apply-for-access.html) for how to do this. Be aware that file names are case sensitive.
 
-Once these three files are ready, `Twongo_Docker_Launcher` can be run by double clicking it, (you might need to provide permission), or it can be run on the command line: `./Twongo_Docker_Launcher` and you will be guided through the process. Once complete, a docker container will be permanently running, and the status of this can be seen using the command.`docker ps`. Your container will stop if docker is ended, or the computer running docker is shutdown or rebooted.\
-If stopped, to restart your container, go to the folder with your files in, and run `./Twongo_Docker_Launcher` again, which will recognise that it is in a folder in which it has previously run.
+Once these three files are ready, `Twongo_Docker_Launcher` can be run by double clicking it, (you might need to provide permission), or it can be run on the command line: `./Twongo_Docker_Launcher` and you will be guided through the process. Once complete, a docker container will be permanently running, and the status of this can be seen using the command.`docker ps`. Your container will stop if docker is ended, or the computer running docker is shutdown or rebooted. If stopped, to restart your container, go to the folder with your files in, and run `./Twongo_Docker_Launcher` again, which will recognise that it is in a folder in which it has previously run.
 
 ### 1.2 Output and data
 Full content and metadata of all tweets is stored in MongoDB, in a database `twitter_db`, with two collections `tweets` which contains all json data and content of each tweet, and `following` which contains a list of all users that each user in your list are following. *MongoDB does not need to be installed on your computer*, all database activity happens in the container.
 The following collection will only be made if you ask for following lists to be gathered. *Currently, gathering following list causes the process to be heavily rate limited by Twitter!*
 
-A refined CSV file is created, in the folder `/output/csv/`, which by default collects the user, the\
-time of tweet, and the tweet content.
+A refined CSV file is created, in the folder `/output/csv/`, which by default collects the user, the time of tweet, and the tweet content.
 
-A backup of the entire database is stored in `/output/twitter_db/`. If you have MongoDB installed,\
-this can be restored with the command\
-`mongorestore [your name given to the database] [the path to the mongodump file]`\
-for example:\
+A backup of the entire database is stored in `/output/twitter_db/`. If you have MongoDB installed, this can be restored with the command `mongorestore [your name given to the database] [the path to the mongodump file]`
+for example:
 `mongoresotore -d twitter_db ./output/twitter_db/tweets`
-(However, please check [MongoDB documentation](https://docs.mongodb.com/manual/) as commands can change)\
-To view and interact with the database using a GUI, you will need MongoDB installed, and\
+(However, please check [MongoDB documentation](https://docs.mongodb.com/manual/) as commands can change)
+To view and interact with the database using a GUI, you will need MongoDB installed, and
 a 3rd-party piece of software. Of free options, we find that [Robo 3T](https://robomongo.org/) works well.
 
 ### 2.1 Running the python script independent of Docker
@@ -123,4 +117,4 @@ The following can be added to your command:\
 
 ### 3.0 License
 DynamicGenetics/twongo is licensed under the GNU General Public License v3.0\
-For full details, please see our [license](https://github.com/DynamicGenetics/twongo/blob/master/LICENSE) file.
+For full details, please see the [GNUv3 license](https://github.com/DynamicGenetics/twongo/blob/master/LICENSE).
