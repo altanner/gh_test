@@ -16,6 +16,7 @@
   * Twongo_Docker_Launcher (provided here),
   * Twitter credentials file (provided here, but complete with your own Twitter access keys),  
   * and your user_list (supplied by you: one screen name per line, plain text file).
+  
 #### 3. Run Twongo_Docker_Launcher by double clicking it, or run it in your terminal/command line.
 
 ## Contents
